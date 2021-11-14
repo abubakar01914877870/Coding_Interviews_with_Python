@@ -1,11 +1,10 @@
 if __name__ == "__main__":
-    matrix = [[1, 2, 3],
-              [5, 6, 7],
-              [9, 10, 11]]
-
+    matrix = []
 
     def spiralOrder(matrix):
         spiral_order = []
+        if len(matrix) == 0:
+            return spiral_order
         m = len(matrix)  # Row
         n = len(matrix[0])  # Column
 
@@ -25,7 +24,6 @@ if __name__ == "__main__":
                     spiral_order.append(matrix[top][i])
                 top += 1
 
-
             # Top to bottom
             elif direction == 1:
                 for i in range(top, bottom + 1):
@@ -39,16 +37,14 @@ if __name__ == "__main__":
                     spiral_order.append(matrix[bottom][i])
                 bottom -= 1
 
-
             # Bottom to top
             else:
-                for i in range(bottom, top-1, -1):
+                for i in range(bottom, top - 1, -1):
                     spiral_order.append(matrix[i][left])
                 left += 1
 
             direction = (direction + 1) % 4
         return spiral_order
-
 
 
     print(spiralOrder(matrix))
