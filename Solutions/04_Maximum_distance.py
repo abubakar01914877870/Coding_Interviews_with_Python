@@ -7,14 +7,14 @@ if __name__ == "__main__":
         for i, num in enumerate(A):
             number.append((num, i))
         number.sort()
-        max_gap = number[0][1]
+        max_gap = 0
         min_num = number[0][1]
         for item in number:
             num = item[1]
-            if num >= min_num:
+            if num <= min_num:
                 min_num = num
             else:
-                max_gap = min(max_gap, num, min_num)
+                max_gap = max(max_gap, num, min_num)
 
         return max_gap
 
